@@ -10,8 +10,18 @@
   --clr-bg: #f2f5fe;
   --clr-primary: #ffffff;
   --clr-secondary: #101439;
+  --box-shadow-1 : 10px 10px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow-2 : 10px 10px 25px rgba(0, 0, 0, 0.1);
   --font-1: "Merriweather", serif;
   --font-2: "Open Sans", sans-serif;
+}
+.dark-mode-theme
+{
+  --clr-bg : #1a1a2e;
+  --clr-primary : #16213e;
+  --clr-secondary : #f2f5fe;
+  --box-shadow-1 : none;
+  --box-shadow-2 : none;
 }
 
 body {
@@ -30,6 +40,8 @@ header {
   height: fit-content;
   padding: 0.45em 0.9em;
 
+  font-size: 16px;
+
   background: var(--clr-primary);
 
   display: flex;
@@ -42,16 +54,20 @@ header h1 {
 }
 
 header .darkModeToggle {
-  width: 1.8em;
-  height: 1.8em;
-
-  background: var(--clr-bg);
+  
+  /* background: var(--clr-bg); */
+  font-size: 2em;
+  color: var(--clr-secondary);
 
   margin-left: auto;
   margin-top: auto;
   margin-bottom: auto;
+}
 
-  border-radius: 50%;
+img
+{
+  width: 100%;
+  height: 100%;
 }
 
 main {
@@ -64,25 +80,27 @@ main {
   font-size: 16px;
 
   background: var(--clr-primary);
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-1);
 
   transform: scale(1);
 
   transition: .3s;
 }
 main:hover {
-  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-2);
   transform: scale(1.02);
 }
 
 .single-quote
 {
-    width: 1.4em;
-    height: 1.4em;
+    /* width: 1.4em;
+    height: 1.4em; */
 
     display: inline-block;
 
-    background: var(--clr-bg);
+    /* background: var(--clr-bg); */
+    color: var(--clr-secondary);
+    font-size: 2em;
 }
 
 .quoteArea
@@ -97,6 +115,7 @@ main:hover {
     font-family: var(--font-2);
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: var(--clr-secondary);
 }
 
 .link-card
@@ -104,6 +123,8 @@ main:hover {
     width: 25ch;
     height: 4em;
     padding: 0.5em;
+
+    font-size: 1em;
 
     background: var(--clr-primary);
 
@@ -125,6 +146,7 @@ main:hover {
 
     font-size: 1.2em;
     cursor: pointer;
+    color: var(--clr-secondary);
 
     position: relative;
 }
@@ -184,4 +206,30 @@ main:hover {
         opacity: 0;
         transform: scale(1.2);
     }
+}
+
+@media (min-width:500px)
+{
+  header
+  {
+    padding: 0.45em 1.5em;
+    font-size: 18px;
+  }
+  main
+  {
+    font-size: 18px;
+    padding: 1.1em;
+  }
+  .link-card
+  {
+    font-size: 18px;
+  }
+}
+@media (min-width:800px)
+{
+  main, .link-card
+  {
+    font-size: 20px;
+  }
+  
 }
