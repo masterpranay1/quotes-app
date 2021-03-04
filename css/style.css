@@ -75,7 +75,7 @@ main {
   /* height: 15em; */
   height: fit-content;
   margin: 2em auto;
-  padding: 1em;
+  padding: 1em 2em;
 
   font-size: 16px;
 
@@ -218,7 +218,7 @@ main:hover {
   main
   {
     font-size: 18px;
-    padding: 1.1em;
+    padding: 1.1em 2.2em;
   }
   .link-card
   {
