@@ -28,10 +28,12 @@ body {
   background: var(--clr-bg);
 
   width: 100vw;
-  height: 100vh;
+  height: auto;
 
   /* display: flex;
   flex-direction: column; */
+
+  overflow-x: hidden;
 }
 
 header {
@@ -124,6 +126,7 @@ main:hover {
   border-radius: 5px;
 
   margin: 0 auto;
+  margin-bottom: 2em;
 
   display: flex;
 }
@@ -209,5 +212,9 @@ main:hover {
   main,
   .link-card {
     font-size: 19px;
+  }
+  header
+  {
+    padding: 0.45em 3.6em;
   }
 }
