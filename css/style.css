@@ -10,18 +10,17 @@
   --clr-bg: #f2f5fe;
   --clr-primary: #ffffff;
   --clr-secondary: #101439;
-  --box-shadow-1 : 10px 10px 15px rgba(0, 0, 0, 0.1);
-  --box-shadow-2 : 10px 10px 25px rgba(0, 0, 0, 0.1);
+  --box-shadow-1: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow-2: 10px 10px 25px rgba(0, 0, 0, 0.1);
   --font-1: "Merriweather", serif;
   --font-2: "Open Sans", sans-serif;
 }
-.dark-mode-theme
-{
-  --clr-bg : #1a1a2e;
-  --clr-primary : #16213e;
-  --clr-secondary : #f2f5fe;
-  --box-shadow-1 : none;
-  --box-shadow-2 : none;
+.dark-mode-theme {
+  --clr-bg: #2d2d2d;
+  --clr-primary: #1e1e1e;
+  --clr-secondary: #f2f5fe;
+  --box-shadow-1: none;
+  --box-shadow-2: none;
 }
 
 body {
@@ -54,7 +53,6 @@ header h1 {
 }
 
 header .darkModeToggle {
-  
   /* background: var(--clr-bg); */
   font-size: 2em;
   color: var(--clr-secondary);
@@ -64,8 +62,7 @@ header .darkModeToggle {
   margin-bottom: auto;
 }
 
-img
-{
+img {
   width: 100%;
   height: 100%;
 }
@@ -81,155 +78,136 @@ main {
 
   background: var(--clr-primary);
   box-shadow: var(--box-shadow-1);
+  border-radius: 5px;
 
   transform: scale(1);
 
-  transition: .3s;
+  transition: 0.3s;
 }
 main:hover {
   box-shadow: var(--box-shadow-2);
   transform: scale(1.02);
 }
 
-.single-quote
-{
-    /* width: 1.4em;
+.single-quote {
+  /* width: 1.4em;
     height: 1.4em; */
 
-    display: inline-block;
+  display: inline-block;
 
-    /* background: var(--clr-bg); */
-    color: var(--clr-secondary);
-    font-size: 2em;
+  /* background: var(--clr-bg); */
+  color: var(--clr-secondary);
+  font-size: 2em;
 }
 
-.quoteArea
-{
-    margin: 1em 0;
-    color: var(--clr-secondary);
-    /* background: var(--clr-bg); */
+.quoteArea {
+  margin: 1em 0;
+  color: var(--clr-secondary);
+  /* background: var(--clr-bg); */
 }
 
-.author
-{
-    font-family: var(--font-2);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--clr-secondary);
+.author {
+  font-family: var(--font-2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--clr-secondary);
 }
 
-.link-card
-{
-    width: 25ch;
-    height: 4em;
-    padding: 0.5em;
+.link-card {
+  width: 25ch;
+  height: 4em;
+  padding: 0.5em;
 
-    font-size: 1em;
+  font-size: 1em;
 
-    background: var(--clr-primary);
+  background: var(--clr-primary);
+  border-radius: 5px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    display: flex;
+  display: flex;
 }
 
-.prev, .next
-{
-    width: 50%;
-    height: 100%;
-    padding: 0.5em;
+.prev,
+.next {
+  width: 50%;
+  height: 100%;
+  padding: 0.5em;
 
-    background: var(--clr-bg);
+  background: var(--clr-bg);
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    font-size: 1.2em;
-    cursor: pointer;
-    color: var(--clr-secondary);
+  font-size: 1.2em;
+  cursor: pointer;
+  color: var(--clr-secondary);
 
-    position: relative;
+  position: relative;
 }
 
-.next
-{
-    background: var(--clr-primary);
+.next {
+  background: var(--clr-primary);
 }
 
-.prev::before
-{
-    position: absolute;
-    content: '<';
+.prev::before {
+  position: absolute;
+  content: "<";
+  left: 1em;
+}
+.prev:hover::before {
+  animation: left 1s infinite ease-in;
+}
+.next::after {
+  position: absolute;
+  content: ">";
+  right: 1em;
+}
+.next:hover::after {
+  animation: right 1s infinite ease-in;
+}
+
+@keyframes left {
+  0% {
     left: 1em;
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    left: 0.6em;
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
-.prev:hover::before
-{
-    animation: left 1s infinite ease-in;
-}
-.next::after
-{
-    position: absolute;
-    content: '>';
+@keyframes right {
+  0% {
     right: 1em;
-}
-.next:hover::after
-{
-    animation: right 1s infinite ease-in;
-}
-
-@keyframes left
-{
-    0%
-    {
-        left: 1em;
-        opacity: 1;
-        transform: scale(1);
-    }
-    100%
-    {
-        left: 0.6em;
-        opacity: 0;
-        transform: scale(1.2);
-    }
-}
-@keyframes right
-{
-    0%
-    {
-        right: 1em;
-        opacity: 1;
-        transform: scale(1);
-    }
-    100%
-    {
-        right: 0.6em;
-        opacity: 0;
-        transform: scale(1.2);
-    }
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    right: 0.6em;
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
-@media (min-width:500px)
-{
-  header
-  {
+@media (min-width: 500px) {
+  header {
     padding: 0.45em 1.5em;
     font-size: 18px;
   }
-  main
-  {
+  main {
     font-size: 18px;
     padding: 1.1em 2.2em;
   }
-  .link-card
-  {
+  .link-card {
     font-size: 18px;
   }
 }
-@media (min-width:800px)
-{
-  main, .link-card
-  {
-    font-size: 20px;
+@media (min-width: 800px) {
+  main,
+  .link-card {
+    font-size: 19px;
   }
-  
 }
