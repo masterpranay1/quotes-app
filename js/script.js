@@ -12,36 +12,35 @@ darkMode.addEventListener("click", () => {
   body.classList.toggle("dark-mode-theme");
 });
 
-let updateUi = e => {
-    quoteArea.innerHTML = quotesList[number];
-    authorArea.innerHTML = quoteAuthorList[number];
+const getQuote = () => {
+  fetch('https://api.quotable.io/random')
+  .then(res => res.json())
+  .then(data => {
+    quotesList.push(data.content);
+    quoteAuthorList.push(data.author);
+  })
+  .then(e => updateUi());
 };
 
-let getQuote = (e) => {
-  fetch("https://quote-garden.herokuapp.com/api/v3/quotes?limit=50")
-    .then((res) => res.json())
-    .then((data) => {
-      data.data.forEach((e) => {
-        quotesList.push(e.quoteText);
-        quoteAuthorList.push(e.quoteAuthor);
-      });
-    })
-    .then(e => updateUi());
+const updateUi = () => {
+  quoteArea.innerHTML = quotesList[number];
+  authorArea.innerHTML = quoteAuthorList[number];
 };
+
+const loadingUi = () => {
+  quoteArea.innerHTML = 'Loading';
+  authorArea.innerHTML = '';
+}
+
 getQuote();
 
+next.addEventListener('click', () => {
+  number++;
+  loadingUi();
+  getQuote();
+});
 
 prev.addEventListener('click', () => {
-    if(number > 0)
-    {
-        number--;
-        updateUi();
-    }
-});
-next.addEventListener('click', () => {
-    if(number < 49)
-    {
-        number++;
-        updateUi();
-    }
+  if(number != 0)
+  number--, updateUi();
 });

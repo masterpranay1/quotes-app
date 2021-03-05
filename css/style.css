@@ -105,6 +105,7 @@ main:hover {
 .quoteArea {
   margin: 1em 0;
   color: var(--clr-secondary);
+  font-size: 1.1em;
   /* background: var(--clr-bg); */
 }
 
